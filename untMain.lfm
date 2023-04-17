@@ -1,0 +1,310 @@
+object frmMain: TfrmMain
+  Left = 407
+  Height = 784
+  Top = 155
+  Width = 1100
+  Caption = 'Bank Manager'
+  ClientHeight = 784
+  ClientWidth = 1100
+  FormStyle = fsStayOnTop
+  KeyPreview = True
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  OnResize = FormResize
+  object pnLeft: TPanel
+    Left = 0
+    Height = 761
+    Top = 0
+    Width = 500
+    Align = alLeft
+    ClientHeight = 761
+    ClientWidth = 500
+    TabOrder = 0
+    object roLeft: TJvRollOut
+      Left = 1
+      Height = 170
+      Top = 1
+      Width = 498
+      Align = alTop
+      ButtonFont.Color = clWindowText
+      ButtonFont.Style = [fsBold]
+      ButtonStyle = bsButton
+      Caption = 'VCEDs (single voices) . . .'
+      Colors.Color = clDefault
+      TabOrder = 0
+      FAWidth = 145
+      FAHeight = 170
+      FCWidth = 22
+      FCHeight = 22
+      object stvLeft: TShellTreeView
+        Left = 1
+        Height = 148
+        Top = 21
+        Width = 496
+        Align = alClient
+        AutoExpand = True
+        FileSortType = fstAlphabet
+        ReadOnly = True
+        TabOrder = 0
+        OnClick = stvClick
+        Options = [tvoAutoExpand, tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+        ObjectTypes = [otFolders]
+      end
+    end
+    object sgLeft: TStringGrid
+      Left = 1
+      Height = 589
+      Hint = 'Some text'
+      Top = 171
+      Width = 498
+      Align = alClient
+      AutoEdit = False
+      AutoFillColumns = True
+      ColCount = 2
+      Columns = <      
+        item
+          Title.Caption = 'Title'
+          Width = 430
+        end>
+      DragMode = dmAutomatic
+      FixedRows = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSelect, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+      TabOrder = 1
+      OnClick = sgLeftClick
+      OnDragDrop = sgLeftDragDrop
+      OnDragOver = sgLeftDragOver
+      OnMouseDown = sgMouseDown
+      OnSelection = sgSelection
+      ColWidths = (
+        64
+        430
+      )
+    end
+  end
+  object pnRight: TPanel
+    Left = 505
+    Height = 761
+    Top = 0
+    Width = 595
+    Align = alClient
+    ClientHeight = 761
+    ClientWidth = 595
+    TabOrder = 1
+    object roRight: TJvRollOut
+      Left = 1
+      Height = 170
+      Top = 1
+      Width = 593
+      Align = alTop
+      ButtonFont.Color = clWindowText
+      ButtonFont.Style = [fsBold]
+      ButtonStyle = bsButton
+      Caption = 'VMEMs (voice bank) . . .'
+      Colors.Color = clDefault
+      TabOrder = 0
+      FAWidth = 145
+      FAHeight = 170
+      FCWidth = 22
+      FCHeight = 22
+      object tbRight: TToolBar
+        Left = 1
+        Height = 26
+        Top = 21
+        Width = 591
+        ButtonHeight = 24
+        ButtonWidth = 24
+        Caption = 'tbRight'
+        Images = ilToolbar
+        ImagesWidth = 24
+        Indent = 3
+        TabOrder = 0
+        object tbtNew: TToolButton
+          Left = 3
+          Top = 2
+          Caption = 'tbtNew'
+          ImageIndex = 0
+          OnClick = tbtNewClick
+        end
+        object tbtLoad: TToolButton
+          Left = 31
+          Top = 2
+          Caption = 'tbtLoad'
+          ImageIndex = 1
+          OnClick = tbtLoadClick
+        end
+        object tbtSave: TToolButton
+          Left = 59
+          Top = 2
+          Caption = 'tbtSave'
+          Enabled = False
+          ImageIndex = 2
+          OnClick = tbtSaveClick
+        end
+        object tbtSaveAs: TToolButton
+          Left = 87
+          Top = 2
+          Caption = 'tbtSaveAs'
+          ImageIndex = 3
+          OnClick = tbtSaveAsClick
+        end
+      end
+    end
+    object sgRight: TStringGrid
+      Left = 1
+      Height = 589
+      Top = 171
+      Width = 593
+      Align = alClient
+      AutoEdit = False
+      AutoFillColumns = True
+      ColCount = 2
+      Columns = <      
+        item
+          Title.Caption = 'Title'
+          Width = 508
+        end>
+      DragMode = dmAutomatic
+      FixedRows = 0
+      Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goRowSelect, goThumbTracking, goSmoothScroll, goFixedRowNumbering]
+      RowCount = 32
+      TabOrder = 1
+      OnDragDrop = sgRightDragDrop
+      OnDragOver = sgRightDragOver
+      OnEditingDone = sgRightEditingDone
+      OnMouseDown = sgMouseDown
+      OnSelection = sgSelection
+      ColWidths = (
+        64
+        508
+      )
+    end
+  end
+  object Splitter: TSplitter
+    Left = 500
+    Height = 761
+    Top = 0
+    Width = 5
+  end
+  object StatusBar: TStatusBar
+    Left = 0
+    Height = 23
+    Hint = 'Mouse buttons without Shift or Ctrl = Exchange rows'#13#10'============================================'#13#10'Combinations of mouse button and Shift or Ctrl:'#13#10'----------------------------------------------------------------------'#13#10'Left mouse button = Copy'#13#10'Right mouse button = Move'#13#10#13#10'+Shift = Insert a row and move all the remaining rows downwards'#13#10'+ Ctrl = Overwrite a row'#13#10'============================================'#13#10'Del = Delete a row and move all the remaining rows upwards'#13#10'Del + Shift = Delete a row and do not move any rows'#13#10'Ins = Insert an empty row and move remaining rows downwards'#13#10'Ins + Shift = Insert an empty row and move the remaining rows '#13#10'                       downwards inside a block'#13#10'============================================'#13#10'F2 = Edit name'#13#10#13#10#13#10#13#10#13#10#13#10#13#10
+    Top = 761
+    Width = 1100
+    Panels = <    
+      item
+        Width = 400
+      end    
+      item
+        Alignment = taCenter
+        Width = 75
+      end    
+      item
+        Alignment = taCenter
+        Width = 75
+      end    
+      item
+        Alignment = taRightJustify
+        Width = 400
+      end    
+      item
+        Text = '?'
+        Width = 30
+      end>
+    ParentShowHint = False
+    SimplePanel = False
+    ShowHint = True
+  end
+  object ilToolbar: TImageList
+    Height = 24
+    Width = 24
+    Left = 1048
+    Top = 64
+    Bitmap = {
+      4C7A0400000018000000180000006E0800000000000078DAED99795094E71DC7
+      77D2649C266D3435231A8BDA2BF140D3D64E1AEBB4E59F4E3B35DEDC2C2C8289
+      D3734C93D476888A44C513016FE45ACE0541E5BED9E516111405E45876970551
+      EEFB5A8E6F9FE7D97DD7D7ED12D6B8FC93E19DF9CCBE2F039FE7F7FCDEE7F9FD
+      1E66050283EB8D650B045B248582B7DE7D5D3017D7867DBF10082BEB047FB8F6
+      67B3BBDF7A779160478AFFC24F1BC60476F959821F6F5D65162FCD89C5C615AF
+      88EE87FDD0BB15BF89D3E067BE1DB0FC381D5BDC3D21F4F8046E1E7B2022B8BA
+      BBC1658F082E6E220845AE7016B9C0D9D5054EAE42AC7F7F839711F72A920B5F
+      92931C0B4F253E948CE3773727B1397E02AB4E3CC1627729568BC4F8A74F38E2
+      13E211177F1DB1D7E320898B45B424065131D1888C8A84A3D019561BD6FFBFFF
+      B5EF2D126C3A624BFC818BFED5880FA246999FCEE11D2F35AC8F372258D689C6
+      27C3181F1FC7E8E82886878731343484FEFE7EF4F6F6A2BBBB1B0E422758AD37
+      E2E75DAF6E89D86FF16915DE0F1AC08FBCD5F83CBA153D431A4C4E4E62626202
+      1A8D0663636318191961FE818101BDDFDEC911EBD65B7DADFFEDA596D61BF75C
+      C2C2BFDE87E88A0AED7D1A4C4D4D313FC5D0CF8FDFD6D11E6BADD67DAD7FE9B2
+      A5D6BB3C3EC322971C14D50D627A7A9AF9B931E81C0CE3EFEBEB434F4F0F6C1C
+      EC4CF2EFD9EB8E3F7E99C3DCB3F9B9F8A97FB7BD2DD6AC5B3BABDF8DF86B1F3D
+      32EA9F29FFD4BFD3763756AF5D33BBDF83FA6BF55E7EEC33E59FF96D76CDEE5F
+      AAF5D7D41AF7D3F539937F87097E0BE2A77BB4A6B646BF66F8B1F3D7FFE0E0E0
+      73EB67FBEE9D786FCDEAD9FDEE7B505D536DD4CDC5CEF9E9DAD1FB77ED30C94F
+      EBCB83870F99938373D3D88DADCDAEAE2E6C7B017FD58307CCC787EFE6E746EF
+      DF698ADFC29AD6C6FB55F7998F83CB0917377573B1D3DC68FDDB4DF20BDD5C51
+      79AF92B9F8D0980DDD5CEC9D9D9D5AFF6AD3FC772B2A988B833A39684EB8774A
+      A1EE8E8E0E6C35C56F61614DFB45F9DD7216231FCECBCF09E76E6F6F37293F4B
+      A89FF4A1B23B65FAF95317F7C9790DDD2FE2A77DCE2F2000E191110C714438C2
+      C2C50815873142C242101C1A82A09060C6B5E0208629EB87F95D9C49AF738283
+      B313EC9C1C585DB7B1B7C32E3B1B56C3681DA07B95EEA76D3C4CD95F335D6703
+      FCE01BE0AFC30FF4F9ACFF399CF13B87D37EBE38E57B1627CF9EC68933A7E073
+      FA248E9F3A8163277D70F4C47198E2A7DE38D2DB8B4B4B7594A0A8A41885C545
+      C82F2A84AC201F79322972A579C8CECD45664E3642482E4DF69FF747F1EDD2E7
+      6A1EBF1F70358F5F3332B232E1ED73EC85FC86359B5F53F97543EF3F7ED4647F
+      89113FD7130C6B36F5A76766E0C831F3F8698E8CF9BD8E7A9BFC7E5FD49F9691
+      81C35F99E6A7EBB1F805F39396918E435F1DC19BCBD72CDAF48F982F085904A9
+      116E313F59937CB7E1FB35E63FE8ED858F02148176579B7120B10327737B7142
+      874F4E2FBC33BBB12FAA8DEC25ADDFB027F3FB1ABF37507F6A7A1A0E1E398CED
+      1794C3C7B37B90FF781AA5ED6094108A9F02454F8014F904CE90BD4AF7137572
+      F06337D6335388FF4BE2B725B107950FE13671967568B9DDF16C9C1232CE1952
+      03E85E9DA927F37343FDB4CEA6A411BFD721D0DC84DC1D62DED4460DE2AA4711
+      AB43A2C3D32F1C91E97750A11C7886A21F7709E54D7DB823EF455943376ED777
+      A1A4AE13E50DED48484A7DCE9FA998C0DE88C7700969819BB8156E613AC43CC8
+      B3484F0B5C4309216AB804374318A482F09A12BB2F2BE016ACC2E9D04478EAFC
+      C1C4EF5FD80FF7F056C4D58C21A941C34834E056BD0637090975E388AF25737C
+      3888E87BBD88B8D38990E25604CA94F04E94C3235485808824781E3EC8FC974A
+      07B12FBA0D7E05FDECBD96E860EF58F79E298584FC3640FA18C8554F92398F22
+      B5610089D55D88AF6885E4B6029F49E43878438DE4D414E6A7EFD72BBD0B4292
+      979BF563CC412968D3BA643AA43A72893BA7650A59AA09A4C98791F4A80F371E
+      7420B65C8DB0C22688821590143F46524AB2DEFF97983692DB16E4A93590B64E
+      12A690471CB92DD3C4358D6C0671AAA790D93C890C9506694DA348AA1BC08DEA
+      6EC4DD7B82A832157C33E4B0BFA2C043F95324EAFCBB2FABE014D48CFFDC7C82
+      6CC530B214236CDE19E4EFD39BC688670CA984148A7C14C98D2348AA1FC2AD47
+      03887FD88DD8CAA788BAD3027171133C6FC8E172E5112A2A2B10191D45FC87B0
+      E3A212369795382F6B475A5D2F52EBFB905CD747E6DD8F44C22D1D3729B5FDB8
+      51D38784EA1E5CAFEA82A442E72E559277DB80BF45CA213A9DC6E2D672081F9D
+      57C02950895092B3C407EDB845A0F98CAFEA200E4A27E2EE77229672AF0392CA
+      76C4506FF9634494A9212E5120A4B0117E9975647D36E1BDDFDAEE5FB172A535
+      63D54A6B527F263F112B71315785A082665C230416A871997C5ECAA7A8191765
+      CD8C0B521581CC374F01FF6C39FCB21A48DEEBF085A49ED6B2D2C53FFDF54FF8
+      B597FC4CBAED82028E810A385F7B86930938063669B9DA44EA986290D4DACFBF
+      FB83E50BF87E3A1EC1DA0C6C22EEC586BD23F2E35F81F27761111C1D075F1A7F
+      F7BDCCB7EB97EF787D9BFC0D7765E8A2FF2FBC24693EEEF3FE79FFBCDFC06F6E
+      BEADFE04FF03484E102329E62A52926291969B3523DFD41FEB69ABBF9FF7CFFB
+      67F1CBE6D2FF27AB253FE78F3157EB7FFEFC337FFE992BBF42A98483E37F2110
+      583F87ACA0C02C7EAD5B460016BC06BCF93AD8BDA5E541242627BFB45F1B2F75
+      EEC7775EF93D192354F72CC5BF0F1C7869FFE6CD9BF5D067EAA46ECB857966F1
+      F3B9575545C6F1247E15967FDFFC7E2B2B21712BF106C9CF071B856C3C739C7F
+      FC1CD663C5E24DBABC2BD9BDD8E343B39D4FC8EFEBD6900A6B966D65E399F3FC
+      A3F54B19F4DEDCE71FFA1DBB40708E41EFCDDD1F4FFA9E615E0ABD9F8BFECBBE
+      B720CC457FD7E6479BFFB9CACF128B038CB9CACF85C0CB8CF9F38FF9CE3FFF03
+      B2AE27E9
+    }
+  end
+  object OpenDialog1: TOpenDialog
+    Title = 'Open SysEx file'
+    Filter = 'SysEx files|*.syx'
+    Left = 1048
+    Top = 120
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '.syx'
+    Filter = 'SysEx files|*.syx'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 1008
+    Top = 64
+  end
+end
